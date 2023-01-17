@@ -10,7 +10,7 @@ public class StepDefinitions {
     private static List<PrestaActuator> allPrestas;
     private static PrestaActuator presta;
     private String webDriver = "webdriver.chrome.driver";
-    private String path = "C:\\Users\\gilgu\\Desktop\\הנדסת מערכות מידע\\סמסטר ה'\\הנדסת איכות תוכנה\\sqe-hw3-main\\sqe-hw3-main\\sqe-hw3\\Selenium\\chromedriver.exe";
+    private String path = "C:\\Users\\gilgu\\Desktop\\הנדסת מערכות מידע\\סמסטר ה'\\הנדסת איכות תוכנה\\sqe-hw3-main\\sqe-hw3-main\\sqe-hw3\\Selenium\\chromedriver_win32\\chromedriver.exe";
     private void prestaInit(){
         System.out.println("--------------- INITIALIZING MOODLE TEST - OPENING WEBPAGE ---------------");
         if(allPrestas == null){
@@ -22,11 +22,17 @@ public class StepDefinitions {
     }
 
     @Given("User is on the catalog")
-    public void userIsOnTheCatalog() {
+    public void userIsOnTheCatalog() throws InterruptedException {
         prestaInit();
 
     }
-
+    @When("User adds discount item to cart")
+    public void userAddsItemOnDiscountToCart() throws InterruptedException {
+//        Thread.sleep(10000);
+//        presta.InitAdmin();
+        prestaInit();
+        presta.addsShirtOnDiscount();
+    }
 
     @Then("message displayed item out of stock!")
     public void messageDisplayedItemOutOfStock() {
@@ -41,10 +47,6 @@ public class StepDefinitions {
     public void adminSetItemStockTo(int arg0) {
     }
 
-    @When("User adds item on discount to cart")
-    public void userAddsItemOnDiscountToCart() {
-        
-    }
 
     @And("Admin changes discount")
     public void adminChangesDiscount() {
@@ -63,11 +65,6 @@ public class StepDefinitions {
     @And("user returns to shopping cart")
     public void userReturnsToShoppingCart() {
     }
-
-    @When("User adds discount item to cart")
-    public void userAddsDiscountItemToCart() {
-    }
-
     @And("admin changes discount percentage")
     public void adminChangesDiscountPercentage() {
     }

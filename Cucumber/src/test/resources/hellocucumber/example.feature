@@ -1,12 +1,12 @@
 Feature: A set of scenarios for testing the Shopping Cart? module
 
-  Scenario: User adds item to cart, admin drops stock to 0
-    Given User is on the catalog
-    When User adds item to cart
-    And User returns to shopping
-    And Admin set item stock to 0
-    And user returns to shopping cart
-    Then message displayed item out of stock!
+#  Scenario: User adds item to cart, admin drops stock to 0
+#    Given User is on the catalog
+#    When User adds item to cart
+#    And User returns to shopping
+#    And Admin set item stock to 0
+#    And user returns to shopping cart
+#    Then message displayed item out of stock!
 
   Scenario: Custumer adds item on sale to cart, admin changes discount percentage
     Given User is on the catalog
