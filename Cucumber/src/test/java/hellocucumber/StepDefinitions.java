@@ -24,19 +24,9 @@ public class StepDefinitions {
     @Given("User is on the catalog")
     public void userIsOnTheCatalog() {
         prestaInit();
-        presta.InitAdmin();
 
     }
 
-    // $$*TODO* explain what this step does$$
-    @When("all step definitions are implemented")
-    public void allStepDefinitionsAreImplemented() {
-    }
-
-    // $$*TODO* explain what this step does$$
-    @Then("the scenario passes")
-    public void theScenarioPasses() {
-    }
 
     @Then("message displayed item out of stock!")
     public void messageDisplayedItemOutOfStock() {
@@ -72,5 +62,13 @@ public class StepDefinitions {
 
     @And("user returns to shopping cart")
     public void userReturnsToShoppingCart() {
+    }
+
+    @When("User adds discount item to cart")
+    public void userAddsDiscountItemToCart() {
+    }
+
+    @And("admin changes discount percentage")
+    public void adminChangesDiscountPercentage() {
     }
 }
