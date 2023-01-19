@@ -29,8 +29,6 @@ public class PrestaActuator {
     }
 
     public void initSessionAdmin(String webDriver, String path) {
-        //webDriver = "webdriver.chrome.driver";
-        //path = "C:\\Users\\eylon\\Downloads\\chromedriver_win32\\chromedriver.exe";
         System.setProperty(webDriver, path);
 
         // new chrome driver object
@@ -40,8 +38,7 @@ public class PrestaActuator {
         this.waitAdmin = new WebDriverWait(driverAdmin, Duration.ofSeconds(17));
 
 
-        // launch website -> localhost
-        //driver.get("https://demo.prestashop.com/");
+        // launch website -> prestashop
         driverAdmin.get("https://demo.prestashop.com/#/en/back");
 
         // maximize the window - some web apps look different in different sizes
@@ -62,23 +59,6 @@ public class PrestaActuator {
         System.out.println("Admin Driver setup finished for - " + driverAdmin.getTitle());
     }
 
-    public void InitAdmin(){
-        driverAdmin.findElement(By.linkText("Explore back office")).click();
-    }
-    private void loginAdmin(){
-        // this.wait = new WebDriverWait(driver, Duration.ofSeconds(17));
-        waitAdmin.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='submit_login']"))).click();
-        //driver.switchTo().defaultContent();
-        // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //  wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Log in")));
-        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='submit_login']")));
-        //driver.findElement(By.xpath("//*[@id='submit_login']")).click();
-
-        //   driver.findElement(By.cssSelector("button#submit_login")).click();
-
-
-    }
-
     public void adminSetItemStockTo0(){
         //Moving into the right frame
         WebElement iframe = driverAdmin.findElement(By.xpath("//*[@id='framelive']"));
@@ -97,7 +77,7 @@ public class PrestaActuator {
 
 
     }
-    public void  adminChangedTheDiscount(String itemName){
+    public void  adminChangedTheDiscount(){
         //Moving into the right frame
         WebElement iframe = driverAdmin.findElement(By.xpath("//*[@id='framelive']"));
         driverAdmin.switchTo().frame(iframe);
@@ -116,11 +96,6 @@ public class PrestaActuator {
         discountField.sendKeys("10");
         waitAdmin.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[id*='form_modal_save']"))).click();
 
-
-        //driver.findElement(By.xpath("//a[@href='https://harmonious-thought.demo.prestashop.com/admin-dev/index.php/sell/catalog/products/2?_token=BiddOrQ8cnOBllc5r4VKseIZw9Qar-zeaw3QrqUq7Cs#tab-step2']")).click();
-
-
-
     }
     public void userAddsItemToCart(String itemName){
 
@@ -129,14 +104,39 @@ public class PrestaActuator {
         driverUser.switchTo().frame(iframe);
         ((JavascriptExecutor) driverUser).executeScript("window.scrollBy(0,200)");
         waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath(itemName))).click();
-        //By.cssSelector("input[id*='form_modal_sp_reduction']")
         waitUser.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class*='btn btn-primary add-to-cart']"))).click();
 
-        //driverUser.findElement(By.xpath("//a[contains(@href,'1-size-s')]/img[contains(@src,'brown-bear-printed-sweater')]")).click();
-        //waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='h2 products-section-title text-uppercase']"))).findElement(By.className("h3 product-title")).findElement(By.linkText("Hummingbird printed sweater")).click();
-        //driverUser.findElement(By.xpath("//a[@href='https://immune-meat.demo.prestashop.com/en/women/2-9-brown-bear-printed-sweater.html#/1-size-s']")).click();
-        //waitUser.until(ExpectedConditions.elementToBeClickable(By.linkText("Hummingbird printed sweater"))).click();
-        //driver.findElement(By.xpath("//a[@href ='https://rugged-brick.demo.prestashop.com/en/women/2-9-brown-bear-printed-sweater.html#/1-size-s']")).click();
+    }
+
+    public void userAddsItemToWishlist(){
+
+        //user need to sign up
+        //Moving into the right frame
+        WebElement iframe = driverUser.findElement(By.xpath("//*[@id='framelive']"));
+        driverUser.switchTo().frame(iframe);
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/section/div/div/div/section/div/div/a"))).click();
+
+        //writing all the information
+        waitUser.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/div/section/div/section/form/div/div[2]/div[1]/input"))).sendKeys("Gil");
+        waitUser.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/div/section/div/section/form/div/div[3]/div[1]/input"))).sendKeys("Mich");
+        waitUser.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"field-email\"]"))).sendKeys("gil@gmail.com");
+        waitUser.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"field-password\"]"))).sendKeys("*Am4mneXjt");
+        waitUser.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/div/section/div/section/form/div/div[6]/div[1]/input"))).sendKeys("01/06/1996");
+        ((JavascriptExecutor) driverUser).executeScript("window.scrollBy(0,200)");
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/section/div/div/div/section/div/section/form/div/div[9]/div[1]"))).click();
+        ((JavascriptExecutor) driverUser).executeScript("window.scrollBy(0,200)");
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/section/div/div/div/section/div/section/form/footer/button"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content\"]/section[1]/div/div[6]/article/div/div[1]/a"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"add-to-cart-or-refresh\"]/div[2]/div/button"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"footer\"]/div[2]/div/div[1]/div[4]/div[1]/div/div/div[2]/div/ul/li/p"))).click();
+
+
+    }
+    public void userComebackToWishlist(){
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[2]/div/a[2]/span"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/section/div/div/div/section/section/div/div/a[5]/span/i"))).click();
+        waitUser.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/main/section/div/div/div/section/div[1]/section/div/ul/li/a/p"))).click();
 
     }
     public void userContinueToCheckout(){
@@ -145,4 +145,5 @@ public class PrestaActuator {
     }
 
 }
+
 
