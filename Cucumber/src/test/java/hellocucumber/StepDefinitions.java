@@ -15,7 +15,7 @@ public class StepDefinitions {
     private static PrestaActuator prestaAdmin;
     private static PrestaActuator prestaUser;
     private String webDriver = "webdriver.chrome.driver";
-    private String path = "C:\\Users\\gilgu\\Desktop\\הנדסת מערכות מידע\\סמסטר ה'\\הנדסת איכות תוכנה\\sqe-hw3-main\\sqe-hw3-main\\sqe-hw3\\Selenium\\chromedriver_win32\\chromedriver.exe";
+    private String path = "C:\\Users\\hilae\\Desktop\\sqe-hw3-main\\Selenium\\chromedriver.exe";
 
     private void prestaInit(){
         System.out.println("--------------- INITIALIZING MOODLE TEST - OPENING WEBPAGE ---------------");
@@ -37,25 +37,26 @@ public class StepDefinitions {
 
     }
 
-    @When("User adds item to cart")
-    public void userAddsItemToCart() {
-        String item = "//a[contains(@href,'6-mug-the-best-is-yet-to-come')]/img[contains(@src,'mug-the-best-is-yet-to-come')]";
-        prestaUser.userAddsItemToCart(item);
 
-    }
-
-
-
-    // $$*TODO* explain what this step does$$
     @When("User adds item for sale to cart")
     public void userAddsItemForSaleToCart() {
         String itemForSale = "//a[contains(@href,'1-size-s')]/img[contains(@src,'brown-bear-printed-sweater')]";
         prestaUser.userAddsItemToCart(itemForSale);
 
     }
+
+    //User adds item to wishlist
+
+    @When("User adds item to wishlist")
+    public void userAddsItemToWishlist() {
+        prestaUser.userAddsItemToWishlist();
+
+    }
+
+
     @When("Admin changed the discount of the item")
     public void adminChangedTheDiscount() {
-        prestaAdmin.adminChangedTheDiscount("");
+        prestaAdmin.adminChangedTheDiscount();
 
     }
 
@@ -66,23 +67,23 @@ public class StepDefinitions {
     }
 
 
+   //
+   @When("User comeback to wishlist")
+   public void userComebackToWishlist() {
+       prestaUser.userComebackToWishlist();
 
+   }
 
     @When("User continue to checkout")
     public void userContinueToCheckout() {
         prestaUser.userContinueToCheckout();
 
     }
-    @When("User continue to checkout with sale item")
+   @When("User continue to checkout with sale item")
     public void userContinueToCheckoutWithSaleItem() {
         prestaUser.userContinueToCheckout();
 
     }
-
-
-    // $$*TODO* explain what this step does$$
-
-
 
     @Then("Message displayed item out of stock!")
     public void messageDisplayedItemOutOfStock() {
@@ -94,3 +95,4 @@ public class StepDefinitions {
     }
 
 }
+
