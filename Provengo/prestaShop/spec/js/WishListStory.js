@@ -35,7 +35,6 @@ story('user signs up, and adds item to wish list', function (session, e){
 
 story('admin logs in and change stock item quantity to 0', function(session, e) {
   let admin = new SeleniumSession().start('https://demo.prestashop.com/#/en/back')
-  admin.sleep(30000)
   admin.changeQuantity(admin)
 })
 

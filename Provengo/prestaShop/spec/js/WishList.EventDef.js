@@ -25,9 +25,6 @@ defineEvent(SeleniumSession, 'SignUp', function(user, e){
   user.writeText("/html/body/main/section/div/div/div/section/div/section/form/div/div[6]/div[1]/input" , "01/06/1996", true)
   user.click("/html/body/main/section/div/div/div/section/div/section/form/div/div[9]/div[1]/span/label/input")
   user.click("/html/body/main/section/div/div/div/section/div/section/form/footer/button")
-  user.click("//*[@id=\"content\"]/section[1]/div/div[6]/article/div/div[1]/a")
-  user.click("//*[@id=\"add-to-cart-or-refresh\"]/div[2]/div/button")
-  user.click("//*[@id=\"footer\"]/div[2]/div/div[1]/div[4]/div[1]/div/div/div[2]/div/ul/li/p")
 })
 defineEvent(SeleniumSession, 'addsToWish', function(user, e){
   user.click("//*[@id=\"content\"]/section[1]/div/div[6]/article/div/div[1]/a")
@@ -42,8 +39,10 @@ defineEvent(SeleniumSession,'ChangeQuantity', function(sessionAdmin, e){
   sessionAdmin.click("//*[@id=\"subtab-AdminStockManagement\"]/a")
   sessionAdmin.scrollToBottom(null)
   sessionAdmin.writeText("/html/body/div[2]/div/div/div[6]/section/div[2]/table/tbody/tr[26]/td[9]/form/div/input" , "-300", true)
+  sessionAdmin.moveToElement("//*[@id=\"app\"]/div[6]/section/div[2]/table/tbody/tr[26]/td[9]/form/button")
   sessionAdmin.click("/html/body/div[2]/div/div/div[6]/section/div[2]/table/tbody/tr[26]/td[9]/form/button")
 })
+/html/body/main/section/div/div/div/section/div[1]/div[2]/div[1]/div[2]/div/span[1]
 
 //
 //
@@ -62,5 +61,5 @@ defineEvent(SeleniumSession,'ChangeQuantity', function(sessionAdmin, e){
 //  * The FeelLucky event defines the selenium action for clicking the "I'm feeling lucky button".
 //  */
 // defineEvent(SeleniumSession, "FeelLucky", function(session, e) {
-//   session.click("//input[@name='btnI']")
+//   session.click("//input[@name='btnI']") 
 // })
