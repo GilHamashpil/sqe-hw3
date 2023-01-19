@@ -2,31 +2,31 @@
 This is a repository for assignment 3 of the Software Quality Engineering course at the [Ben-Gurion University](https://in.bgu.ac.il/), Israel.
 
 ## Assignment Description
-In this assignment, we tested an open-source software called [$$*TODO* software name$$](https://address-of-the-project.com).
+In this assignment, we tested an open-source software called PrestaShop (https://demo.prestashop.com/#/en/front).
 
-$$*TODO* Add some general description about the software$$
+PrestaShop is a store where you can buy products and send them to a desired address exactly the same concept as eBay or AliExpress.
 
 ## Installation
-$$*TODO* Write instructions on how to install the software and prepare the testing environment$$
+You have two links:
+admins environment : (https://demo.prestashop.com/#/en/front)
+customer's environment : (https://demo.prestashop.com/#/en/back)
 
 ## What we tested
-$$*TODO* Add a description of the module and the user stories that you chose to test.
-For example, in the case of the Moodle example, you can write something like this:
 
-We tested the quiz module that allows for creating and taking quizzes. We chose to test the following user stories: 
+We tested the Sale module and WishList module . We chose to test the following user stories: 
 
-*User story:* A teacher adds a new quiz to the course with two yes/no questions
+*User story:* A customer adds a new item for sale to the shopping cart
 
-*Preconditions:* There is a course with a teacher
+*Preconditions:* The admin change the discount of this product
 
-*Expected outcome:* The quiz is added to the course.
+*Expected outcome:* When the customer wants to continue to checkout the discount changed property
 
-*User story:* A students attempts a quiz and answers correctly.
+*User story:* A customer adds a new item to the wishlist
 
-*Preconditions:* There is a course with a quiz with two yes/no questions and the quiz grade is calculated automatically and the grade is visible to the students upon submission.
+*Preconditions:* The admin change the quantity of this product to 0
 
-*Expected outcome:* The student receives 100.
-$$
+*Expected outcome:* when costumer comeback to wishlist - there is a massage "Product out of sale"
+
 
 ## How we tested
 We used two different testing methods:
@@ -38,15 +38,3 @@ Each of the testing methods is elaborated in its own directory.
 ## Results
 Update all README.md files (except for d-e, see Section 1). Specifically, replace all $$*TODO*…$$ according to the instructions inside the $$.
 
-## Detected Bugs
-We detected the following bugs:
-
-1. Bug 1: 
-   1. General description: ...
-   2. Steps to reproduce: ...
-   3. Expected result: ...
-   4. Actual result: ...
-   5. Link to the bug report: (you are encouraged to report the bug to the developers of the software)
-2. Bug 2: ...
-
-$$*TODO* if you did not detect the bug, you can delete this section$$  
