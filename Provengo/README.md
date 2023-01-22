@@ -30,7 +30,7 @@ provengo analyze -f PDF prestaShop
 provengo run --show-sessions --max-windows prestaShop
 ```
 6. We repeated steps 4-5 until we were satisfied with the result.
-7. We recorded a video of the running tests and added it to the report. Since more than one browser session was opened, we recorded the entire screen. The link for the video is [prestaShop-addItemForSale.wmv](prestaShop\prestaShop-addItemForSale.wmv) and [prestaShop-addItemToWishlist.wmv](prestaShop\prestaShop-addItemToWishlist.wmv).
+7. We recorded a video of the running tests and added it to the report. Since more than one browser session was opened, we recorded the entire screen. The link for the video is [prestaShop-addItemForSale.zip](prestaShop\prestaShop-addItemForSale.zip) and [prestaShop-addItemToWishlist.zip](prestaShop\prestaShop-addItemToWishlist.zip)).
 8. We copied the generated graph of the model to a file named [prastaShop-addItemToSale.pdf](prestaShop\prastaShop-addItemToSale.pdf) and  [prestaShop-addItemToWishlist.pdf](prestaShop\prestaShop-addItemToWishlist.pdf)inside this directory (the link should work).
 
 ### Story files
